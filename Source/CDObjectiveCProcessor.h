@@ -18,6 +18,8 @@
 @property (nonatomic, readonly) CDSection *objcImageInfoSection;
 @property (nonatomic, readonly) NSString *garbageCollectionStatus;
 
+@property (nonatomic, copy) NSDictionary *norefsMethods;
+
 - (void)addClass:(CDOCClass *)aClass withAddress:(uint64_t)address;
 - (CDOCClass *)classWithAddress:(uint64_t)address;
 
@@ -30,6 +32,9 @@
 - (void)loadProtocols;
 - (void)loadClasses;
 - (void)loadCategories;
+- (void)loadRefsMethods;
+
+- (NSArray<CDOCClass *> *)getClasses;
 
 - (void)registerTypesWithObject:(CDTypeController *)typeController phase:(NSUInteger)phase;
 - (void)recursivelyVisit:(CDVisitor *)visitor;

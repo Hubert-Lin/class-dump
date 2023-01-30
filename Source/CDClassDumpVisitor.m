@@ -140,4 +140,48 @@
     }
 }
 
+// Called after visiting.
+- (void)didVisitObjectiveCProcessor:(CDObjectiveCProcessor *)processor
+{
+//    if ([[processor.machOFile.filename lastPathComponent] isEqualToString:self.executableFileName]) {
+//        NSMutableArray *whiteListMethod = @[].mutableCopy;
+//
+//        if (self.whiteListPath.length > 0) {
+//            NSArray *lines = [[NSString stringWithContentsOfFile:self.whiteListPath encoding:NSUTF8StringEncoding error:nil] componentsSeparatedByString:@"\n"];
+//            for (NSString *line in lines) {
+//                [whiteListMethod addObject:line];
+//            }
+//        }
+
+        [processor loadRefsMethods];
+//        NSArray *selectorsInXibStoryboard = [self selectorsInXibStoryboard];
+//
+//        NSMutableDictionary *retDict = @{}.mutableCopy;
+//
+//        for (NSString *key in processor.norefsMethods.allKeys) {
+//            if (![self isforbiddenNames:key]) {
+//
+//
+//                NSMutableArray *methodList = @[].mutableCopy;
+//
+//                for (NSString *methodName in processor.norefsMethods[key]) {
+//                    if ([self isExternalMethods:methodName]) {
+//                        continue;
+//                    }
+//
+//                    if (![whiteListMethod containsObject:methodName] && ![selectorsInXibStoryboard containsObject:methodName]) {
+//                        [methodList addObject:methodName];
+//                    }
+//                }
+//                if (methodList.count > 0) {
+//                    [retDict setObject:methodList forKey:key];
+//                    _allCount += [methodList count];
+//                }
+//            }
+//        }
+//
+//        self.unusedMethodsMap = retDict.copy;
+//    }
+}
+
 @end

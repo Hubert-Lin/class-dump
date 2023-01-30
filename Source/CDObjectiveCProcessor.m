@@ -100,6 +100,11 @@
 
 #pragma mark -
 
+- (NSArray<CDOCClass *> *)getClasses
+{
+    return [_classes copy];
+}
+
 - (void)addClass:(CDOCClass *)aClass withAddress:(uint64_t)address;
 {
     [_classes addObject:aClass];
@@ -157,6 +162,11 @@
 }
 
 - (void)loadCategories;
+{
+    // Implement in subclasses.
+}
+
+- (void)loadRefsMethods
 {
     // Implement in subclasses.
 }
