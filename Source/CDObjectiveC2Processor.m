@@ -20,6 +20,7 @@
 #import "cd_objc2.h"
 #import "CDProtocolUniquer.h"
 #import "CDOCClassReference.h"
+#import "HBLinkMapManager.h"
 
 @implementation CDObjectiveC2Processor
 {
@@ -62,86 +63,6 @@
 
 - (void)loadRefsMethods
 {
-    NSMutableArray *selrefsArray = @[].mutableCopy;
-    NSMutableArray *noRefArray = @[].mutableCopy;
-    NSMutableDictionary *allNoRefDict = @{}.mutableCopy;
-    
-    CDSection *section = [[self.machOFile dataConstSegment] sectionWithName:@"__objc_selrefs"];
-    CDMachOFileDataCursor *cursor = [[CDMachOFileDataCursor alloc] initWithSection:section];
-    
-    while ([cursor isAtEnd] == NO) {
-        uint64_t val = [cursor readPtr];
-        NSString *str = [self.machOFile stringAtAddress:val];
-        if (str.length > 0) {
-            [selrefsArray addObject:str];
-        }
-    }
-
-    for (CDOCClass *aClass in [self getClasses]) {
-        if (![aClass.name hasPrefix:@"YY"]) {
-            continue;
-        }
-        
-        NSMutableArray *protocolMethods = @[].mutableCopy;
-        
-        for (CDOCProtocol *protocol in aClass.protocols) {
-            for (CDOCMethod *method in protocol.instanceMethods) {
-                [protocolMethods addObject:method.name];
-            }
-            for (CDOCMethod *method in protocol.optionalInstanceMethods) {
-                [protocolMethods addObject:method.name];
-            }
-            for (CDOCMethod *method in protocol.classMethods) {
-                [protocolMethods addObject:method.name];
-            }
-            for (CDOCMethod *method in protocol.optionalClassMethods) {
-                [protocolMethods addObject:method.name];
-            }
-        }
-        
-        NSMutableArray *getterAndSetterMethods = @[].mutableCopy;
-        for (CDOCProperty *property in aClass.properties) {
-            NSString *propertySetter = property.name;
-            propertySetter = [propertySetter stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[propertySetter substringToIndex:1] capitalizedString]];
-            propertySetter = [NSString stringWithFormat:@"set%@:", propertySetter];
-            
-            [getterAndSetterMethods addObject:property.name];
-            [getterAndSetterMethods addObject:propertySetter];
-        }
-        
-        for (CDOCMethod *method in aClass.instanceMethods) {
-            if ([noRefArray containsObject:method.name]) {
-                continue;
-            }
-            if ([getterAndSetterMethods containsObject:method.name]) {
-                continue;
-            }
-            if ([protocolMethods containsObject:method.name]) {
-                continue;
-            }
-            if (![selrefsArray containsObject:method.name]) {
-                [noRefArray addObject:method.name];
-                
-                NSMutableArray *noRefFromeClassArray = allNoRefDict[aClass.name];
-                if (!noRefFromeClassArray) {
-                    noRefFromeClassArray = @[].mutableCopy;
-                }
-                
-                [noRefFromeClassArray addObject:method.name];
-                allNoRefDict[aClass.name] = noRefFromeClassArray;
-            }
-        }
-    }
-    
-    self.norefsMethods = allNoRefDict.copy;
-    
-    for (NSString *key in self.norefsMethods.allKeys) {
-        NSLog(@"%@", key);
-        for (NSString *m in self.norefsMethods[key]) {
-            NSLog(@"    %@", m);
-        }
-    }
-    exit(0);
 }
 
 

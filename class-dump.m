@@ -19,6 +19,7 @@
 #import "CDFatFile.h"
 #import "CDFatArch.h"
 #import "CDSearchPathState.h"
+#import "HBUnusedMethodManager.h"
 
 void print_usage(void)
 {
@@ -234,7 +235,7 @@ int main(int argc, char *argv[])
                     break;
             }
         }
-
+                
         if (errorFlag) {
             print_usage();
             exit(2);

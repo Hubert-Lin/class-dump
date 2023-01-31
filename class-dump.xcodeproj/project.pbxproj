@@ -129,6 +129,11 @@
 		0D288C11187BC2EE0026E2A0 /* CDOCClassReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D288C0F187BC2EE0026E2A0 /* CDOCClassReference.m */; };
 		C270B5C616C54AD6006CA75D /* ULEB128.m in Sources */ = {isa = PBXBuildFile; fileRef = C270B5C516C54AD5006CA75D /* ULEB128.m */; };
 		C270B5C816C54B0C006CA75D /* ULEB128.h in Headers */ = {isa = PBXBuildFile; fileRef = C270B5C716C54B0A006CA75D /* ULEB128.h */; };
+		E42BE5F629890E25001045D5 /* HBUnusedMethodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E42BE5F529890E25001045D5 /* HBUnusedMethodManager.m */; };
+		E46188D72987CF8300BFD1B1 /* HBSymbolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E46188D62987CF8300BFD1B1 /* HBSymbolModel.m */; };
+		E46188D82987CF8300BFD1B1 /* HBSymbolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E46188D62987CF8300BFD1B1 /* HBSymbolModel.m */; };
+		E46188DB2987CFDE00BFD1B1 /* HBLinkMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E46188DA2987CFDE00BFD1B1 /* HBLinkMapManager.m */; };
+		E46188DC2987CFDE00BFD1B1 /* HBLinkMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E46188DA2987CFDE00BFD1B1 /* HBLinkMapManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -405,6 +410,13 @@
 		0D288C0F187BC2EE0026E2A0 /* CDOCClassReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDOCClassReference.m; path = Source/CDOCClassReference.m; sourceTree = "<group>"; };
 		C270B5C516C54AD5006CA75D /* ULEB128.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ULEB128.m; path = Source/ULEB128.m; sourceTree = "<group>"; };
 		C270B5C716C54B0A006CA75D /* ULEB128.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ULEB128.h; path = Source/ULEB128.h; sourceTree = "<group>"; };
+		E42BE5F429890E25001045D5 /* HBUnusedMethodManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBUnusedMethodManager.h; sourceTree = "<group>"; };
+		E42BE5F529890E25001045D5 /* HBUnusedMethodManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBUnusedMethodManager.m; sourceTree = "<group>"; };
+		E42BE5F7298916C7001045D5 /* class-dump.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "class-dump.entitlements"; sourceTree = "<group>"; };
+		E46188D52987CF8300BFD1B1 /* HBSymbolModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBSymbolModel.h; sourceTree = "<group>"; };
+		E46188D62987CF8300BFD1B1 /* HBSymbolModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBSymbolModel.m; sourceTree = "<group>"; };
+		E46188D92987CFDE00BFD1B1 /* HBLinkMapManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBLinkMapManager.h; sourceTree = "<group>"; };
+		E46188DA2987CFDE00BFD1B1 /* HBLinkMapManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBLinkMapManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -556,6 +568,8 @@
 		01EB825413A590D9003EDE60 = {
 			isa = PBXGroup;
 			children = (
+				E42BE5F329890E0E001045D5 /* UnusedMethod */,
+				E46188D42987CF7100BFD1B1 /* LinkMap */,
 				01EB828013A5916D003EDE60 /* MachObjC */,
 				01EB826513A590D9003EDE60 /* class-dump */,
 				013D1EFE13A5A0F100BF0A67 /* deprotect */,
@@ -580,6 +594,7 @@
 		01EB826513A590D9003EDE60 /* class-dump */ = {
 			isa = PBXGroup;
 			children = (
+				E42BE5F7298916C7001045D5 /* class-dump.entitlements */,
 				01B02D1B13A5B2A40047BC53 /* class-dump-Prefix.pch */,
 				01B02D4913A5B9090047BC53 /* Info.plist */,
 				0133F1771EE784DA0086686F /* README.md */,
@@ -788,6 +803,26 @@
 			name = "Third Party";
 			sourceTree = "<group>";
 		};
+		E42BE5F329890E0E001045D5 /* UnusedMethod */ = {
+			isa = PBXGroup;
+			children = (
+				E42BE5F429890E25001045D5 /* HBUnusedMethodManager.h */,
+				E42BE5F529890E25001045D5 /* HBUnusedMethodManager.m */,
+			);
+			path = UnusedMethod;
+			sourceTree = "<group>";
+		};
+		E46188D42987CF7100BFD1B1 /* LinkMap */ = {
+			isa = PBXGroup;
+			children = (
+				E46188D52987CF8300BFD1B1 /* HBSymbolModel.h */,
+				E46188D62987CF8300BFD1B1 /* HBSymbolModel.m */,
+				E46188D92987CFDE00BFD1B1 /* HBLinkMapManager.h */,
+				E46188DA2987CFDE00BFD1B1 /* HBLinkMapManager.m */,
+			);
+			path = LinkMap;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -913,6 +948,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 01EB825413A590D9003EDE60;
@@ -1030,12 +1066,14 @@
 				0165B8D81827198900CC647F /* TestBlockSignature.m in Sources */,
 				0165B8DD1827198900CC647F /* TestFatFile_Intel32_64.m in Sources */,
 				0165B8DB1827198900CC647F /* TestFatFile_armv7_v7s.m in Sources */,
+				E46188D82987CF8300BFD1B1 /* HBSymbolModel.m in Sources */,
 				0165B8DA1827198900CC647F /* TestCDArchUses64BitABI.m in Sources */,
 				0165B8DC1827198900CC647F /* TestFatFile_Intel32_64_lib64.m in Sources */,
 				0165B8D91827198900CC647F /* TestCDArchFromName.m in Sources */,
 				0165B8C31827182000CC647F /* TestCDNameForCPUType.m in Sources */,
 				0165B8E01827198900CC647F /* TestThinFile_Intel64.m in Sources */,
 				0165B8DF1827198900CC647F /* TestThinFile_Intel64_lib64.m in Sources */,
+				E46188DC2987CFDE00BFD1B1 /* HBLinkMapManager.m in Sources */,
 				0165B8DE1827198900CC647F /* TestFatFile_Intel64_32.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1056,14 +1094,17 @@
 				01B02D2113A5B4D70047BC53 /* CDStructureTable.m in Sources */,
 				01B02D2213A5B4D70047BC53 /* CDTypeController.m in Sources */,
 				01B02D2313A5B4D70047BC53 /* CDStructureInfo.m in Sources */,
+				E46188DB2987CFDE00BFD1B1 /* HBLinkMapManager.m in Sources */,
 				01B02D2513A5B4D70047BC53 /* CDClassDumpVisitor.m in Sources */,
 				01B02D2613A5B4D70047BC53 /* CDFindMethodVisitor.m in Sources */,
 				01B02D2713A5B4D70047BC53 /* CDVisitor.m in Sources */,
 				01B02D2813A5B4D70047BC53 /* CDClassFrameworkVisitor.m in Sources */,
+				E46188D72987CF8300BFD1B1 /* HBSymbolModel.m in Sources */,
 				01B02D2913A5B4D70047BC53 /* CDMultiFileVisitor.m in Sources */,
 				01B02D2A13A5B4D70047BC53 /* CDTextClassDumpVisitor.m in Sources */,
 				01B02D2B13A5B4D70047BC53 /* CDSearchPathState.m in Sources */,
 				01B02D1113A5B1460047BC53 /* class-dump.m in Sources */,
+				E42BE5F629890E25001045D5 /* HBUnusedMethodManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1403,8 +1444,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = "class-dump.entitlements";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "class-dump-Prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
@@ -1417,8 +1460,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = "class-dump.entitlements";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "class-dump-Prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
