@@ -35,7 +35,7 @@
 
 - (void)analyze:(CDObjectiveCProcessor *)processor
 {
-    NSString *linkmapPath = @"/Users/linsunxin/Documents/Temp/haokan2.39_nolive/YYULiveSDKBridgeDemo-LinkMap-normal-arm64.txt";
+    NSString *linkmapPath = @"/Users/linsunxin/Documents/Workspace/APPTHIN/YYSDK/haokan2.39_nolive/YYULiveSDKBridgeDemo-LinkMap-normal-arm64.txt";
     [[HBLinkMapManager defaultManager] analyze:[NSURL fileURLWithPath:linkmapPath]];
     
     NSDictionary<NSString *, NSArray<NSString *> *> *whiteList = [self featchWhiteList];
@@ -58,17 +58,28 @@
     for (CDOCClass *aClass in [processor getClasses]) {
         HBSymbolModel *symbolModel = [[HBLinkMapManager defaultManager] symbolModelWithName:aClass.name];
 
-        if (![symbolModel.component hasPrefix:@"yychannelcomponent"]) {
+        NSString *component = @"yychannelcomponent";
+//        component = @"yychannelbase";
+//        component = @"yybaseservice";
+//        component = @"yybaseapisdk";
+//        component = @"yyulivesdk";
+        
+        if (![symbolModel.component hasPrefix:component]) {
             continue;
         }
         
-        if ([aClass.name isEqualToString:@"YYPluginPermission"]) {
-            NSLog(@" ");
-        }
+        BOOL isCore = [aClass.name hasSuffix:@"Core"];
+        
+//        if (!isCore) {
+//            continue;
+//        }
         
         NSMutableArray *protocolMethods = @[].mutableCopy;
         
         for (CDOCProtocol *protocol in aClass.protocols) {
+            if (isCore && [protocol.name hasPrefix:@"I"]) {
+                continue;
+            }
             for (CDOCMethod *method in protocol.instanceMethods) {
                 [protocolMethods addObject:method.name];
             }
@@ -94,6 +105,10 @@
         }
         
         for (CDOCMethod *method in aClass.instanceMethods) {
+            if ([method.name hasPrefix:@"."]) {
+                continue;
+            }
+            
             if ([noRefArray containsObject:method.name]) {
                 continue;
             }
@@ -134,7 +149,7 @@
 
 - (NSDictionary<NSString *, NSArray<NSString *> *> *)featchWhiteList
 {
-    NSString *whiteListPath = @"/Users/linsunxin/Downloads/yychannelcomponent_unused_white_list.json";
+    NSString *whiteListPath = @"/Users/linsunxin/Documents/Workspace/APPTHIN/YYSDK/unused_white_list.json";
     if (![[NSFileManager defaultManager] fileExistsAtPath:whiteListPath]) {
         return nil;
     }
