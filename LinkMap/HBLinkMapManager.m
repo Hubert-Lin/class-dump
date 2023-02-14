@@ -77,4 +77,10 @@
     return symbolMap;
 }
 
+- (BOOL)is:(NSString *)className inComponent:(NSString *)component
+{
+    HBSymbolModel *symbolModel = [[HBLinkMapManager defaultManager] symbolModelWithName:className];
+    return [symbolModel.component hasPrefix:component];
+}
+
 @end

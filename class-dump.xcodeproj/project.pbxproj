@@ -129,6 +129,11 @@
 		0D288C11187BC2EE0026E2A0 /* CDOCClassReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D288C0F187BC2EE0026E2A0 /* CDOCClassReference.m */; };
 		C270B5C616C54AD6006CA75D /* ULEB128.m in Sources */ = {isa = PBXBuildFile; fileRef = C270B5C516C54AD5006CA75D /* ULEB128.m */; };
 		C270B5C816C54B0C006CA75D /* ULEB128.h in Headers */ = {isa = PBXBuildFile; fileRef = C270B5C716C54B0A006CA75D /* ULEB128.h */; };
+		E40CFEF729962D53007B06DE /* HBProtocolStatementVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = E40CFEF629962D53007B06DE /* HBProtocolStatementVisitor.m */; };
+		E40CFEFB29963CA5007B06DE /* CDOCMethod+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = E40CFEFA29963CA5007B06DE /* CDOCMethod+Add.m */; };
+		E40CFEFE29963D1B007B06DE /* CDOCClass+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = E40CFEFD29963D1B007B06DE /* CDOCClass+Add.m */; };
+		E40CFF01299643C4007B06DE /* CDOCProtocol+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = E40CFF00299643C4007B06DE /* CDOCProtocol+Add.m */; };
+		E40CFF0529964C33007B06DE /* HBProtocolStatementManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E40CFF0429964C33007B06DE /* HBProtocolStatementManager.m */; };
 		E42BE5F629890E25001045D5 /* HBUnusedMethodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E42BE5F529890E25001045D5 /* HBUnusedMethodManager.m */; };
 		E46188D72987CF8300BFD1B1 /* HBSymbolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E46188D62987CF8300BFD1B1 /* HBSymbolModel.m */; };
 		E46188D82987CF8300BFD1B1 /* HBSymbolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E46188D62987CF8300BFD1B1 /* HBSymbolModel.m */; };
@@ -410,6 +415,16 @@
 		0D288C0F187BC2EE0026E2A0 /* CDOCClassReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDOCClassReference.m; path = Source/CDOCClassReference.m; sourceTree = "<group>"; };
 		C270B5C516C54AD5006CA75D /* ULEB128.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ULEB128.m; path = Source/ULEB128.m; sourceTree = "<group>"; };
 		C270B5C716C54B0A006CA75D /* ULEB128.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ULEB128.h; path = Source/ULEB128.h; sourceTree = "<group>"; };
+		E40CFEF529962D53007B06DE /* HBProtocolStatementVisitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HBProtocolStatementVisitor.h; path = Visitors/HBProtocolStatementVisitor.h; sourceTree = "<group>"; };
+		E40CFEF629962D53007B06DE /* HBProtocolStatementVisitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HBProtocolStatementVisitor.m; path = Visitors/HBProtocolStatementVisitor.m; sourceTree = "<group>"; };
+		E40CFEF929963CA5007B06DE /* CDOCMethod+Add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDOCMethod+Add.h"; sourceTree = "<group>"; };
+		E40CFEFA29963CA5007B06DE /* CDOCMethod+Add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CDOCMethod+Add.m"; sourceTree = "<group>"; };
+		E40CFEFC29963D1B007B06DE /* CDOCClass+Add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDOCClass+Add.h"; sourceTree = "<group>"; };
+		E40CFEFD29963D1B007B06DE /* CDOCClass+Add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CDOCClass+Add.m"; sourceTree = "<group>"; };
+		E40CFEFF299643C4007B06DE /* CDOCProtocol+Add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDOCProtocol+Add.h"; sourceTree = "<group>"; };
+		E40CFF00299643C4007B06DE /* CDOCProtocol+Add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CDOCProtocol+Add.m"; sourceTree = "<group>"; };
+		E40CFF0329964C33007B06DE /* HBProtocolStatementManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBProtocolStatementManager.h; sourceTree = "<group>"; };
+		E40CFF0429964C33007B06DE /* HBProtocolStatementManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBProtocolStatementManager.m; sourceTree = "<group>"; };
 		E42BE5F429890E25001045D5 /* HBUnusedMethodManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBUnusedMethodManager.h; sourceTree = "<group>"; };
 		E42BE5F529890E25001045D5 /* HBUnusedMethodManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBUnusedMethodManager.m; sourceTree = "<group>"; };
 		E42BE5F7298916C7001045D5 /* class-dump.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "class-dump.entitlements"; sourceTree = "<group>"; };
@@ -529,6 +544,8 @@
 		01984AC013AA9EA900EABFF6 /* Visitors */ = {
 			isa = PBXGroup;
 			children = (
+				E40CFEF529962D53007B06DE /* HBProtocolStatementVisitor.h */,
+				E40CFEF629962D53007B06DE /* HBProtocolStatementVisitor.m */,
 				01EB829B13A591D7003EDE60 /* CDClassDumpVisitor.h */,
 				01EB829C13A591D7003EDE60 /* CDClassDumpVisitor.m */,
 				01EB82A713A591D7003EDE60 /* CDFindMethodVisitor.h */,
@@ -568,6 +585,8 @@
 		01EB825413A590D9003EDE60 = {
 			isa = PBXGroup;
 			children = (
+				E40CFF0229964BFF007B06DE /* ProtocolStatement */,
+				E40CFEF829963C68007B06DE /* Category */,
 				E42BE5F329890E0E001045D5 /* UnusedMethod */,
 				E46188D42987CF7100BFD1B1 /* LinkMap */,
 				01EB828013A5916D003EDE60 /* MachObjC */,
@@ -801,6 +820,28 @@
 				01FB214F222A86C40012A5D3 /* blowfish.h */,
 			);
 			name = "Third Party";
+			sourceTree = "<group>";
+		};
+		E40CFEF829963C68007B06DE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E40CFEF929963CA5007B06DE /* CDOCMethod+Add.h */,
+				E40CFEFA29963CA5007B06DE /* CDOCMethod+Add.m */,
+				E40CFEFC29963D1B007B06DE /* CDOCClass+Add.h */,
+				E40CFEFD29963D1B007B06DE /* CDOCClass+Add.m */,
+				E40CFEFF299643C4007B06DE /* CDOCProtocol+Add.h */,
+				E40CFF00299643C4007B06DE /* CDOCProtocol+Add.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		E40CFF0229964BFF007B06DE /* ProtocolStatement */ = {
+			isa = PBXGroup;
+			children = (
+				E40CFF0329964C33007B06DE /* HBProtocolStatementManager.h */,
+				E40CFF0429964C33007B06DE /* HBProtocolStatementManager.m */,
+			);
+			path = ProtocolStatement;
 			sourceTree = "<group>";
 		};
 		E42BE5F329890E0E001045D5 /* UnusedMethod */ = {
@@ -1094,10 +1135,14 @@
 				01B02D2113A5B4D70047BC53 /* CDStructureTable.m in Sources */,
 				01B02D2213A5B4D70047BC53 /* CDTypeController.m in Sources */,
 				01B02D2313A5B4D70047BC53 /* CDStructureInfo.m in Sources */,
+				E40CFF01299643C4007B06DE /* CDOCProtocol+Add.m in Sources */,
 				E46188DB2987CFDE00BFD1B1 /* HBLinkMapManager.m in Sources */,
 				01B02D2513A5B4D70047BC53 /* CDClassDumpVisitor.m in Sources */,
 				01B02D2613A5B4D70047BC53 /* CDFindMethodVisitor.m in Sources */,
+				E40CFEFE29963D1B007B06DE /* CDOCClass+Add.m in Sources */,
 				01B02D2713A5B4D70047BC53 /* CDVisitor.m in Sources */,
+				E40CFEF729962D53007B06DE /* HBProtocolStatementVisitor.m in Sources */,
+				E40CFEFB29963CA5007B06DE /* CDOCMethod+Add.m in Sources */,
 				01B02D2813A5B4D70047BC53 /* CDClassFrameworkVisitor.m in Sources */,
 				E46188D72987CF8300BFD1B1 /* HBSymbolModel.m in Sources */,
 				01B02D2913A5B4D70047BC53 /* CDMultiFileVisitor.m in Sources */,
@@ -1105,6 +1150,7 @@
 				01B02D2B13A5B4D70047BC53 /* CDSearchPathState.m in Sources */,
 				01B02D1113A5B1460047BC53 /* class-dump.m in Sources */,
 				E42BE5F629890E25001045D5 /* HBUnusedMethodManager.m in Sources */,
+				E40CFF0529964C33007B06DE /* HBProtocolStatementManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

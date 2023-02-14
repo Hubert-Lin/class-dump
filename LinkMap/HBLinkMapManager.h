@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)analyze:(NSURL *)url;
 - (HBSymbolModel *)symbolModelWithName:(NSString *)name;
 
+- (BOOL)is:(NSString *)className inComponent:(NSString *)component;
+
 @end
 
 NS_ASSUME_NONNULL_END

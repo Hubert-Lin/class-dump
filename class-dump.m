@@ -19,7 +19,7 @@
 #import "CDFatFile.h"
 #import "CDFatArch.h"
 #import "CDSearchPathState.h"
-#import "HBUnusedMethodManager.h"
+#import "HBProtocolStatementVisitor.h"
 
 void print_usage(void)
 {
@@ -311,24 +311,28 @@ int main(int argc, char *argv[])
                     [classDump processObjectiveCData];
                     [classDump registerTypes];
                     
-                    if (searchString != nil) {
-                        CDFindMethodVisitor *visitor = [[CDFindMethodVisitor alloc] init];
-                        visitor.classDump = classDump;
-                        visitor.searchString = searchString;
-                        [classDump recursivelyVisit:visitor];
-                    } else if (shouldGenerateSeparateHeaders) {
-                        CDMultiFileVisitor *multiFileVisitor = [[CDMultiFileVisitor alloc] init];
-                        multiFileVisitor.classDump = classDump;
-                        classDump.typeController.delegate = multiFileVisitor;
-                        multiFileVisitor.outputPath = outputPath;
-                        [classDump recursivelyVisit:multiFileVisitor];
-                    } else {
-                        CDClassDumpVisitor *visitor = [[CDClassDumpVisitor alloc] init];
-                        visitor.classDump = classDump;
-                        if ([hiddenSections containsObject:@"structures"]) visitor.shouldShowStructureSection = NO;
-                        if ([hiddenSections containsObject:@"protocols"])  visitor.shouldShowProtocolSection  = NO;
-                        [classDump recursivelyVisit:visitor];
-                    }
+//                    if (searchString != nil) {
+//                        CDFindMethodVisitor *visitor = [[CDFindMethodVisitor alloc] init];
+//                        visitor.classDump = classDump;
+//                        visitor.searchString = searchString;
+//                        [classDump recursivelyVisit:visitor];
+//                    } else if (shouldGenerateSeparateHeaders) {
+//                        CDMultiFileVisitor *multiFileVisitor = [[CDMultiFileVisitor alloc] init];
+//                        multiFileVisitor.classDump = classDump;
+//                        classDump.typeController.delegate = multiFileVisitor;
+//                        multiFileVisitor.outputPath = outputPath;
+//                        [classDump recursivelyVisit:multiFileVisitor];
+//                    } else {
+//                        CDClassDumpVisitor *visitor = [[CDClassDumpVisitor alloc] init];
+//                        visitor.classDump = classDump;
+//                        if ([hiddenSections containsObject:@"structures"]) visitor.shouldShowStructureSection = NO;
+//                        if ([hiddenSections containsObject:@"protocols"])  visitor.shouldShowProtocolSection  = NO;
+//                        [classDump recursivelyVisit:visitor];
+//                    }
+                    
+                    HBProtocolStatementVisitor *visitor = [[HBProtocolStatementVisitor alloc] init];
+                    visitor.classDump = classDump;
+                    [classDump recursivelyVisit:visitor];
                 }
             }
         }
